@@ -11,10 +11,19 @@ package edu.wpi.first.wpilibj.interfaces;
  */
 @Deprecated(since = "2024", forRemoval = true)
 public interface Accelerometer {
+  /**
+   * Range of maximum acceleration the accelerometer should be configured to measure.
+   * 
+   * Smaller ranges often provide more resolution, but bigger ranges tolerate greater acceleration.
+   */
   enum Range {
+    /** +- 2G of maximum acceleration */
     k2G,
+    /** +- 4G of maximum acceleration */
     k4G,
+    /** +- 8G of maximum acceleration */
     k8G,
+    /** +- 16G of maximum acceleration */
     k16G
   }
 
