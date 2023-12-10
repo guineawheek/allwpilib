@@ -11,8 +11,11 @@ import java.util.Objects;
 
 /** Class to control a simulated ADXL345 accelerometer. */
 public class ADXL345Sim {
+  /** Simulated X-axis acceleration */
   protected SimDouble m_simX;
+  /** Simulated Y-axis acceleration */
   protected SimDouble m_simY;
+  /** Simulated Z-axis acceleration */
   protected SimDouble m_simZ;
 
   /**

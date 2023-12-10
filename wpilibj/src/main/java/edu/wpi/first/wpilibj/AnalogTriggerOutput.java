@@ -106,9 +106,13 @@ public class AnalogTriggerOutput extends DigitalSource implements Sendable {
 
   /** Defines the state in which the AnalogTrigger triggers. */
   public enum AnalogTriggerType {
+    /** Trigger when the output value is between the upper and lower limits */
     kInWindow(AnalogJNI.AnalogTriggerType.kInWindow),
+    /** Trigger when the output has reached the upper limit and stayed above the lower limit */
     kState(AnalogJNI.AnalogTriggerType.kState),
+    /** Trigger on an upper to lower rollover */
     kRisingPulse(AnalogJNI.AnalogTriggerType.kRisingPulse),
+    /** Trigger on a lower to upper rollover */
     kFallingPulse(AnalogJNI.AnalogTriggerType.kFallingPulse);
 
     private final int value;

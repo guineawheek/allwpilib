@@ -11,21 +11,32 @@ package edu.wpi.first.wpilibj;
  * source. The source can either be a digital input or analog trigger but not both.
  */
 public abstract class DigitalSource implements AutoCloseable {
-  public abstract boolean isAnalogTrigger();
-
-  public abstract int getChannel();
-
   /**
    * If this is an analog trigger.
    *
    * @return true if this is an analog trigger.
    */
-  public abstract int getAnalogTriggerTypeForRouting();
+  public abstract boolean isAnalogTrigger();
 
   /**
    * The channel routing number.
    *
    * @return channel routing number
+   */
+  public abstract int getChannel();
+
+  /**
+   * The analog trigger type.
+   * 
+   * The valid values are in {@link edu.wpi.first.hal.AnalogJNI.AnalogTriggerType}.
+   * @return the analog trigger type
+   */
+  public abstract int getAnalogTriggerTypeForRouting();
+
+  /**
+   * Gets the HAL port handle associated with the DigitalSource.
+   * 
+   * @return the HAL port handle number
    */
   public abstract int getPortHandleForRouting();
 

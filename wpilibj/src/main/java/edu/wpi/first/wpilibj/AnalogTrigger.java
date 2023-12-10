@@ -30,8 +30,11 @@ public class AnalogTrigger implements Sendable, AutoCloseable {
   /** Where the analog trigger is attached. */
   protected int m_port;
 
+  /** The underlying analog input handle. */
   protected AnalogInput m_analogInput;
+  /** The underlying duty cycle input handle. */
   protected DutyCycle m_dutyCycle;
+  /** Whether or not this AnalogTrigger exclusively owns the underlying AnalogInput */
   protected boolean m_ownsAnalog;
 
   /**
