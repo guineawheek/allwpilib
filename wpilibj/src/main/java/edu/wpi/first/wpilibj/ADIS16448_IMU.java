@@ -94,18 +94,33 @@ public class ADIS16448_IMU implements AutoCloseable, Sendable {
   private static final int PROD_ID = 0x56; // Product identifier
   private static final int SERIAL_NUM = 0x58; // Lot-specific serial number
 
+  /**
+   * Calibration times that are valid for the IMU.
+   */
   public enum CalibrationTime {
+    /** 32 milliseconds */
     _32ms(0),
+    /** 64 milliseconds */
     _64ms(1),
+    /** 128 milliseconds */
     _128ms(2),
+    /** 256 milliseconds */
     _256ms(3),
+    /** 512 milliseconds */
     _512ms(4),
+    /** 1 second */
     _1s(5),
+    /** 2 seconds */
     _2s(6),
+    /** 4 seconds */
     _4s(7),
+    /** 8 seconds */
     _8s(8),
+    /** 16 seconds */
     _16s(9),
+    /** 32 seconds*/
     _32s(10),
+    /** 64 seconds */
     _64s(11);
 
     private final int value;
@@ -115,9 +130,17 @@ public class ADIS16448_IMU implements AutoCloseable, Sendable {
     }
   }
 
+  /**
+   * IMU axes valid to set as yaw. 
+   * 
+   * By default, this is the Z-axis.
+   */
   public enum IMUAxis {
+    /** X-axis */
     kX,
+    /** Y-axis */
     kY,
+    /** Z-axis */
     kZ
   }
 
@@ -248,11 +271,17 @@ public class ADIS16448_IMU implements AutoCloseable, Sendable {
     }
   }
 
+  /**
+   * Constructs a new ADIS16448 IMU using the SPI port on the MXP, the Z-axis as yaw, and 512 
+   * milliseconds of calibration time.
+   */
   public ADIS16448_IMU() {
     this(IMUAxis.kZ, SPI.Port.kMXP, CalibrationTime._512ms);
   }
 
   /**
+   * Constructs a new ADIS16448 IMU class.
+   * 
    * @param yaw_axis The axis that measures the yaw
    * @param port The SPI Port the gyro is plugged into
    * @param cal_time Calibration time
@@ -332,6 +361,12 @@ public class ADIS16448_IMU implements AutoCloseable, Sendable {
     m_connected = true;
   }
 
+  /**
+   * Get if the sensor is connected.
+   * Assumed true on real robots but may not be true in simulation.
+   * 
+   * @return true if the sensor is connected
+   */
   public boolean isConnected() {
     if (m_simConnected != null) {
       return m_simConnected.get();
@@ -339,30 +374,69 @@ public class ADIS16448_IMU implements AutoCloseable, Sendable {
     return m_connected;
   }
 
-  /** */
+  /**
+   * Converts a 2-length array of bytes into an unsigned short
+   * 
+   * @param buf length 2 buffer
+   * @return value between 0-65535 as an int
+   */
   private static int toUShort(byte[] buf) {
     return (((buf[0] & 0xFF) << 8) + ((buf[1] & 0xFF) << 0));
   }
 
+  /**
+   * Converts a series of integers into an unsigned byte.
+   * This strips the sign extension usually implied by Java type-casting.
+   * 
+   * @param buf integers to convert. Only the first argument is considered.
+   * @return value from 0-255 as an int
+   */
   private static int toUByte(int... buf) {
     return (buf[0] & 0xFF);
   }
 
+  /**
+   * Converts a series of integers into an unsigned short.
+   * This strips the sign extension usually implied by Java type-casting.
+   * 
+   * @param buf integers to convert. 
+   *     Arg 0 is the upper 8 bits, while arg 1 is the lower 8.
+   * @return value from 0-65535 as an int
+   */
   public static int toUShort(int... buf) {
     return (((buf[0] & 0xFF) << 8) + (buf[1] & 0xFF));
   }
 
-  /** */
+  /**
+   * Converts a signed int to a long.
+   * This strips the sign extension usually implied by Java type-casting.
+   * 
+   * @param sint integer to convert
+   * @return value from 0-(2^32-1) as a long
+   */
   private static long toULong(int sint) {
     return sint & 0x00000000FFFFFFFFL;
   }
 
-  /** */
+  /**
+   * Convert a series of integers representing unsigned bytes into a signed short.
+   * 
+   * @param buf integers to convert. 
+   *     Arg 0 is the upper 8 bits, while arg 1 is the lower 8 bits.
+   * @return signed 16-bit short
+   */
   private static int toShort(int... buf) {
     return (short) (((buf[0] & 0xFF) << 8) + ((buf[1] & 0xFF)));
   }
 
-  /** */
+  
+  /**
+   * Convert a series of integers representing unsigned bytes into a signed int.
+   * 
+   * @param buf integers to convert.
+   *     Arg 0 is bits 24-31, arg 1 is bits 16-23, arg 2 is bits 8-15, and arg 3 is bits 0-7.
+   * @return signed 32-bit integer
+   */
   private static int toInt(int... buf) {
     return (buf[0] & 0xFF) << 24 | (buf[1] & 0xFF) << 16 | (buf[2] & 0xFF) << 8 | (buf[3] & 0xFF);
   }
@@ -481,6 +555,21 @@ public class ADIS16448_IMU implements AutoCloseable, Sendable {
     return true;
   }
 
+  /**
+   * Sets the decimation rate of the IMU.
+   * This controls how many samples the IMU internally averages over, and also the effective update
+   * rate. Higher decimation may have less noise but more lag, and lower decimation may be 
+   * noiser but have less lag.
+   * 
+   * <p>
+   * Valid rates are between 0-9, where the number of samples averaged over is 2^(m_decRate).
+   * The ADIS16448 typically updates at 819.2 samples per second on the gyroscope and accelerometer
+   * outputs.
+   * </p>
+   * 
+   * @param m_decRate The decimation rate as a power of 2 (between 0-9 inclusive.)
+   * @return 0 on success, 2 on SPI reconfiguration failure.
+   */
   public int configDecRate(int m_decRate) {
     int writeValue;
     int readbackValue;
@@ -624,6 +713,9 @@ public class ADIS16448_IMU implements AutoCloseable, Sendable {
     m_spi.write(buf, 2);
   }
 
+  /**
+   * Resets the integrated gyro values to 0 on each axis.
+   */
   public void reset() {
     synchronized (this) {
       m_integ_gyro_angle_x = 0.0;

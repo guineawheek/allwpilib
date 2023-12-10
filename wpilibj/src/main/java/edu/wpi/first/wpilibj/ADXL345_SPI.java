@@ -40,16 +40,29 @@ public class ADXL345_SPI implements NTSendable, AutoCloseable {
   private static final int kDataFormat_FullRes = 0x08;
   private static final int kDataFormat_Justify = 0x04;
 
+  /**
+   * Ranges of valid accelerations, positive or negative, the accelerometer can measure.
+   */
   public enum Range {
+    /** +- 2 Gs */
     k2G,
+    /** +- 4 Gs */
     k4G,
+    /** +- 8 Gs */
     k8G,
+    /** +- 16 Gs */
     k16G
   }
 
+  /**
+   * Valid axes of acceleration.
+   */
   public enum Axes {
+    /** X-axis */
     kX((byte) 0x00),
+    /** Y-axis */
     kY((byte) 0x02),
+    /** Z-axis */
     kZ((byte) 0x04);
 
     /** The integer value representing this enumeration. */
@@ -60,19 +73,31 @@ public class ADXL345_SPI implements NTSendable, AutoCloseable {
     }
   }
 
+  /**
+   * Class representing a reading of all three acceleration axes in Gs.
+   */
   @SuppressWarnings("MemberName")
   public static class AllAxes {
+    /** X-axis measurement */
     public double XAxis;
+    /** Y-axis measurement */
     public double YAxis;
+    /** Z-axis measurement */
     public double ZAxis;
   }
 
+  /** Underlying SPI handle */
   protected SPI m_spi;
 
+  /** Underlying SimDevice */
   protected SimDevice m_simDevice;
+  /** Simulated accelerometer reading range */
   protected SimEnum m_simRange;
+  /** Simulated X-axis acceleration */
   protected SimDouble m_simX;
+  /** Simulated Y-axis acceleration */
   protected SimDouble m_simY;
+  /** Simulated Z-axis acceleration */
   protected SimDouble m_simZ;
 
   /**
@@ -102,6 +127,11 @@ public class ADXL345_SPI implements NTSendable, AutoCloseable {
     SendableRegistry.addLW(this, "ADXL345_SPI", port.value);
   }
 
+  /**
+   * Gets the SPI port number associated with the device.
+   * 
+   * @return the SPI port number
+   */
   public int getPort() {
     return m_spi.getPort();
   }

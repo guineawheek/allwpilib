@@ -43,17 +43,30 @@ public class ADXL362 implements NTSendable, AutoCloseable {
 
   private static final byte kPowerCtl_Measure = 0x02;
 
+  /**
+   * Ranges of valid acceleration, positive or negative, that the accelerometer can measure.
+   */
   public enum Range {
+    /** +- 2 Gs */
     k2G,
+    /** +- 4 Gs */
     k4G,
+    /** +- 8 Gs */
     k8G
   }
 
+  /**
+   * Valid axes of acceleration.
+   */
   public enum Axes {
+    /** X-axis */
     kX((byte) 0x00),
+    /** Y-axis */
     kY((byte) 0x02),
+    /** Z-axis */
     kZ((byte) 0x04);
 
+    /** The integer value representing this enumeration. */
     public final byte value;
 
     Axes(byte value) {
@@ -61,10 +74,16 @@ public class ADXL362 implements NTSendable, AutoCloseable {
     }
   }
 
+  /**
+   * Class representing a reading of all three acceleration axes in Gs.
+   */
   @SuppressWarnings("MemberName")
   public static class AllAxes {
+    /** X-axis measurement */
     public double XAxis;
+    /** Y-axis measurement */
     public double YAxis;
+    /** Z-axis measurement */
     public double ZAxis;
   }
 
@@ -142,6 +161,11 @@ public class ADXL362 implements NTSendable, AutoCloseable {
     SendableRegistry.addLW(this, "ADXL362", port.value);
   }
 
+  /**
+   * Gets the SPI port number associated with the device.
+   * 
+   * @return the SPI port number
+   */
   public int getPort() {
     return m_spi.getPort();
   }

@@ -179,18 +179,33 @@ public class ADIS16470_IMU implements AutoCloseable, Sendable {
     FLASH_CNT
   };
 
+  /**
+   * Calibration times that are valid for this IMU.
+   */
   public enum CalibrationTime {
+    /** 32 milliseconds */
     _32ms(0),
+    /** 64 milliseconds */
     _64ms(1),
+    /** 128 milliseconds */
     _128ms(2),
+    /** 256 milliseconds */
     _256ms(3),
+    /** 512 milliseconds */
     _512ms(4),
+    /** 1 second */
     _1s(5),
+    /** 2 seconds */
     _2s(6),
+    /** 4 seconds */
     _4s(7),
+    /** 8 seconds */
     _8s(8),
+    /** 16 seconds */
     _16s(9),
+    /** 32 seconds */
     _32s(10),
+    /** 64 seconds */
     _64s(11);
 
     private final int value;
@@ -200,9 +215,15 @@ public class ADIS16470_IMU implements AutoCloseable, Sendable {
     }
   }
 
+  /**
+   * IMU axes valid to set as yaw.
+   */
   public enum IMUAxis {
+    /** X-axis */
     kX,
+    /** Y-axis */
     kY,
+    /** Z-axis */
     kZ
   }
 
@@ -278,11 +299,17 @@ public class ADIS16470_IMU implements AutoCloseable, Sendable {
     }
   }
 
+  /**
+   * Construcst a new ADIS16470 IMU using the CS0 port on the Rio, the Z-axis as yaw, and 4 seconds
+   * of calibration time.
+   */
   public ADIS16470_IMU() {
     this(IMUAxis.kZ, SPI.Port.kOnboardCS0, CalibrationTime._4s);
   }
 
   /**
+   * Constructs a new ADS16470 IMU class.
+   * 
    * @param yaw_axis The axis that measures the yaw
    * @param port The SPI Port the gyro is plugged into
    * @param cal_time Calibration time
@@ -369,6 +396,12 @@ public class ADIS16470_IMU implements AutoCloseable, Sendable {
     m_connected = true;
   }
 
+  /**
+   * Get if the sensor is connected.
+   * Assumed true on real robots but may not be true in simulation.
+   * 
+   * @return true if the sensor is connected
+   */
   public boolean isConnected() {
     if (m_simConnected != null) {
       return m_simConnected.get();
@@ -561,6 +594,22 @@ public class ADIS16470_IMU implements AutoCloseable, Sendable {
     return 0;
   }
 
+  /**
+   * Sets the decimation rate of the IMU.
+   * This effectively controls the update rate of the device. 
+   * Higher decimation equates to less noise but lower update rates, and lower decimation means 
+   * higher update rates but potential for more noise.
+   * 
+   * <p>
+   * The sensor nominally updates at 2000 samples per second, so the sensor can average up to the
+   * last second's worth of data -- more precisely, <code>(decimation_rate + 1)</code> samples 
+   * worth.
+   * </p>
+   * 
+   * @param reg The decimation rate (between 0-1999 inclusive). This is the number of samples that 
+   * the sensor will average over, minus 1.
+   * @return 0 on success, 2 on SPI reconfiguration failure.
+   */
   public int configDecRate(int reg) {
     int m_reg = reg;
     if (!switchToStandardSPI()) {
@@ -650,6 +699,9 @@ public class ADIS16470_IMU implements AutoCloseable, Sendable {
     m_spi.write(buf, 2);
   }
 
+  /**
+   * Resets the measured integrated yaw value to 0.
+   */
   public void reset() {
     synchronized (this) {
       m_integ_angle = 0.0;
@@ -933,6 +985,8 @@ public class ADIS16470_IMU implements AutoCloseable, Sendable {
   }
 
   /**
+   * Gets the integrated gyro yaw angle.
+   * 
    * @return Yaw axis angle in degrees (CCW positive)
    */
   public synchronized double getAngle() {
@@ -957,6 +1011,8 @@ public class ADIS16470_IMU implements AutoCloseable, Sendable {
   }
 
   /**
+   * Gets the yaw axis angular rate measured by the IMU.
+   * 
    * @return Yaw axis angular rate in degrees per second (CCW positive)
    */
   public synchronized double getRate() {
@@ -981,6 +1037,8 @@ public class ADIS16470_IMU implements AutoCloseable, Sendable {
   }
 
   /**
+   * Gets the IMU axis currently used to measure yaw.
+   * 
    * @return Yaw Axis
    */
   public IMUAxis getYawAxis() {
@@ -988,6 +1046,8 @@ public class ADIS16470_IMU implements AutoCloseable, Sendable {
   }
 
   /**
+   * Gets the current X-axis acceleration in Gs.
+   * 
    * @return current acceleration in the X axis
    */
   public synchronized double getAccelX() {
@@ -995,6 +1055,8 @@ public class ADIS16470_IMU implements AutoCloseable, Sendable {
   }
 
   /**
+   * Gets the current Y-axis acceleration in Gs.
+   * 
    * @return current acceleration in the Y axis
    */
   public synchronized double getAccelY() {
@@ -1002,6 +1064,8 @@ public class ADIS16470_IMU implements AutoCloseable, Sendable {
   }
 
   /**
+   * Gets the current Z-axis acceleration in Gs.
+   * 
    * @return current acceleration in the Z axis
    */
   public synchronized double getAccelZ() {
@@ -1009,6 +1073,8 @@ public class ADIS16470_IMU implements AutoCloseable, Sendable {
   }
 
   /**
+   * Gets the current X-axis complementary angle in degrees.
+   * 
    * @return X-axis complementary angle
    */
   public synchronized double getXComplementaryAngle() {
@@ -1016,6 +1082,8 @@ public class ADIS16470_IMU implements AutoCloseable, Sendable {
   }
 
   /**
+   * Gets the current Y-axis complementary angle in degrees.
+   * 
    * @return Y-axis complementary angle
    */
   public synchronized double getYComplementaryAngle() {
@@ -1023,6 +1091,8 @@ public class ADIS16470_IMU implements AutoCloseable, Sendable {
   }
 
   /**
+   * Gets the current X-axis filtered acceleration angle in degrees.
+   * 
    * @return X-axis filtered acceleration angle
    */
   public synchronized double getXFilteredAccelAngle() {
@@ -1030,6 +1100,8 @@ public class ADIS16470_IMU implements AutoCloseable, Sendable {
   }
 
   /**
+   * Gets the current Y-axis filtered acceleration angle in degrees.
+   * 
    * @return Y-axis filtered acceleration angle
    */
   public synchronized double getYFilteredAccelAngle() {

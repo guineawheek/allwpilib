@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.ADXL345_I2C;
 import edu.wpi.first.wpilibj.ADXL345_SPI;
 import java.util.Objects;
 
+/** Class to control a simulated ADXL345 accelerometer. */
 public class ADXL345Sim {
   protected SimDouble m_simX;
   protected SimDouble m_simY;
@@ -48,14 +49,29 @@ public class ADXL345Sim {
     Objects.requireNonNull(m_simZ);
   }
 
+  /**
+   * Set the X-axis acceleration measured by the accelerometer in g-forces.
+   * 
+   * @param x the new value
+   */
   public void setX(double x) {
     m_simX.set(x);
   }
 
+  /**
+   * Set the Y-axis acceleration measured by the accelerometer in g-forces.
+   * 
+   * @param y the new value
+   */
   public void setY(double y) {
     m_simY.set(y);
   }
 
+  /**
+   * Set the Z-axis acceleration measured by the accelerometer in g-forces.
+   * 
+   * @param z the new value
+   */
   public void setZ(double z) {
     m_simZ.set(z);
   }
