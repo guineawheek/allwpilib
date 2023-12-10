@@ -25,6 +25,7 @@ import edu.wpi.first.util.sendable.SendableRegistry;
  */
 public class AnalogGyro implements Sendable, AutoCloseable {
   private static final double kDefaultVoltsPerDegreePerSecond = 0.007;
+  /** Handle corresponding to the underlying {@link AnalogInput} the rate gyro is connected to. */
   protected AnalogInput m_analog;
   private boolean m_channelAllocated;
 

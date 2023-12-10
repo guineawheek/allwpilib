@@ -381,7 +381,7 @@ public final class DriverStationSim {
   }
 
   /**
-   * Gets the value of the axis on a joystick.
+   * Sets the value of the axis on a joystick.
    *
    * @param stick The joystick number
    * @param axis The analog axis number
@@ -392,7 +392,7 @@ public final class DriverStationSim {
   }
 
   /**
-   * Gets the state of a POV on a joystick.
+   * Sets the state of a POV on a joystick.
    *
    * @param stick The joystick number
    * @param pov The POV number

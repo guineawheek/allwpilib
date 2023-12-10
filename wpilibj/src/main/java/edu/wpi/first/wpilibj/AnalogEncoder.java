@@ -22,8 +22,11 @@ public class AnalogEncoder implements Sendable, AutoCloseable {
   private double m_distancePerRotation = 1.0;
   private double m_lastPosition;
 
+  /** SimDevice handle */
   protected SimDevice m_simDevice;
+  /** Simulated relative position */
   protected SimDouble m_simPosition;
+  /** Simulated absolute position */
   protected SimDouble m_simAbsolutePosition;
 
   /**
