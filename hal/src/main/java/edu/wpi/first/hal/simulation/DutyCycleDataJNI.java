@@ -8,14 +8,13 @@ import edu.wpi.first.hal.JNIWrapper;
 
 /**
  * Simulated duty cycle PWM input data HAL JNI methods.
- * 
+ *
  * @see "hal/simulation/DutyCycleData.h"
  */
 public class DutyCycleDataJNI extends JNIWrapper {
-
   /**
    * Register a callback on the initialization state.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called
    * @param initialNotify whether to run the callback on the initial value
@@ -27,7 +26,7 @@ public class DutyCycleDataJNI extends JNIWrapper {
   /**
    * Unregister a callback on the initialization state.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -35,7 +34,7 @@ public class DutyCycleDataJNI extends JNIWrapper {
 
   /**
    * Checks if the device is initialized.
-   * 
+   *
    * @param index index number of the simulated device
    * @return true if initialized
    */
@@ -43,7 +42,7 @@ public class DutyCycleDataJNI extends JNIWrapper {
 
   /**
    * Changes if the device is initialized
-   * 
+   *
    * @param index index number of the simulated device
    * @param initialized the new value
    */
@@ -51,7 +50,7 @@ public class DutyCycleDataJNI extends JNIWrapper {
 
   /**
    * Register a callback on the duty cycle frequency.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called
    * @param initialNotify whether to run the callback on the initial value
@@ -63,7 +62,7 @@ public class DutyCycleDataJNI extends JNIWrapper {
   /**
    * Unregister a callback on the duty cycle frequency.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -71,7 +70,7 @@ public class DutyCycleDataJNI extends JNIWrapper {
 
   /**
    * Reads the duty cycle frequency.
-   * 
+   *
    * @param index index number of the simulated device
    * @return int the frequency in Hz
    */
@@ -79,7 +78,7 @@ public class DutyCycleDataJNI extends JNIWrapper {
 
   /**
    * Changes the duty cycle frequency.
-   * 
+   *
    * @param index index number of the simulated device
    * @param frequency the new value
    */
@@ -87,7 +86,7 @@ public class DutyCycleDataJNI extends JNIWrapper {
 
   /**
    * Register a callback on the output value.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called
    * @param initialNotify whether to run the callback on the initial value
@@ -99,7 +98,7 @@ public class DutyCycleDataJNI extends JNIWrapper {
   /**
    * Unregister a callback on the output value.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -107,7 +106,7 @@ public class DutyCycleDataJNI extends JNIWrapper {
 
   /**
    * Reads the output value.
-   * 
+   *
    * @param index index number of the simulated device
    * @return the duty cycle output value, scaled approximately between 0 and 1
    */
@@ -115,7 +114,7 @@ public class DutyCycleDataJNI extends JNIWrapper {
 
   /**
    * Changes the duty cycle value.
-   * 
+   *
    * @param index index number of the simulated device
    * @param output the new value
    */
@@ -123,7 +122,7 @@ public class DutyCycleDataJNI extends JNIWrapper {
 
   /**
    * Resets all simulation data for a simulated device.
-   * 
+   *
    * @param index index number of the simulated device
    */
   public static native void resetData(int index);

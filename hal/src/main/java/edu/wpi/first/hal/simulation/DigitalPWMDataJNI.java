@@ -8,13 +8,13 @@ import edu.wpi.first.hal.JNIWrapper;
 
 /**
  * Simulated digital PWM output data HAL JNI methods.
- * 
+ *
  * @see "hal/simulation/DigitalPWMData.h"
  */
 public class DigitalPWMDataJNI extends JNIWrapper {
   /**
    * Register a callback on when the initialization state changes.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the initialization state changes
    * @param initialNotify whether to run the callback on the initial value
@@ -26,7 +26,7 @@ public class DigitalPWMDataJNI extends JNIWrapper {
   /**
    * Unregister a callback on when the initialization state changes.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -34,7 +34,7 @@ public class DigitalPWMDataJNI extends JNIWrapper {
 
   /**
    * Checks if the device is initialized.
-   * 
+   *
    * @param index index number of the simulated device
    * @return true if initialized
    */
@@ -42,7 +42,7 @@ public class DigitalPWMDataJNI extends JNIWrapper {
 
   /**
    * Changes the initialization state of the output.
-   * 
+   *
    * @param index index number of the simulated device
    * @param initialized the new initialization state
    */
@@ -50,7 +50,7 @@ public class DigitalPWMDataJNI extends JNIWrapper {
 
   /**
    * Register a callback on when the duty cycle output changes.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the duty cycle output changes
    * @param initialNotify whether to run the callback on the initial value
@@ -62,7 +62,7 @@ public class DigitalPWMDataJNI extends JNIWrapper {
   /**
    * Unregister a callback on when the duty cycle output changes.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -70,7 +70,7 @@ public class DigitalPWMDataJNI extends JNIWrapper {
 
   /**
    * Checks the currently applied duty cycle.
-   * 
+   *
    * @param index index number of the simulated device
    * @return the duty cycle value
    */
@@ -78,7 +78,7 @@ public class DigitalPWMDataJNI extends JNIWrapper {
 
   /**
    * Changes the duty cycle output value.
-   * 
+   *
    * @param index index number of the simulated device
    * @param dutyCycle the new value.
    */
@@ -86,7 +86,7 @@ public class DigitalPWMDataJNI extends JNIWrapper {
 
   /**
    * Register a callback on whenver the pin changes.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the pin changes
    * @param initialNotify whether to run the callback on the initial value
@@ -98,7 +98,7 @@ public class DigitalPWMDataJNI extends JNIWrapper {
   /**
    * Unregister a callback on whenever the pin changes
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -106,7 +106,7 @@ public class DigitalPWMDataJNI extends JNIWrapper {
 
   /**
    * Checks the pin number
-   * 
+   *
    * @param index index number of the simulated device
    * @return pin number
    */
@@ -114,7 +114,7 @@ public class DigitalPWMDataJNI extends JNIWrapper {
 
   /**
    * Changes the pin number
-   * 
+   *
    * @param index index number of the simulated device
    * @param pin the new pin number
    */
@@ -122,7 +122,7 @@ public class DigitalPWMDataJNI extends JNIWrapper {
 
   /**
    * Resets all simulation data for a simulated device.
-   * 
+   *
    * @param index index number of the simulated device
    */
   public static native void resetData(int index);

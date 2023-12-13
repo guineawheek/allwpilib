@@ -8,13 +8,13 @@ import edu.wpi.first.hal.JNIWrapper;
 
 /**
  * Simulated CTRE PCM data HAL JNI methods.
- * 
+ *
  * @see "hal/simulation/CTREPCMData.h"
  */
 public class CTREPCMDataJNI extends JNIWrapper {
   /**
    * Register a callback on when the PCM is initialized.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called when the PCM initialization state changes
    * @param initialNotify whether to run the callback on the initial value
@@ -26,7 +26,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
   /**
    * Unregister a callback on the PCM initialization state.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -34,7 +34,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
 
   /**
    * Check if the PCM has been initialized.
-   * 
+   *
    * @param index index number of the simulated device
    * @return true if initialized
    */
@@ -42,7 +42,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
 
   /**
    * Change whether the PCM has been initialized.
-   * 
+   *
    * @param index index number of the simulated device
    * @param initialized true for initialized
    */
@@ -50,7 +50,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
 
   /**
    * Register a callback on a solenoid output.
-   * 
+   *
    * @param index index number of the simulated device
    * @param channel the channel to monitor
    * @param callback the callback that will be called whenever a solenoid output changes
@@ -63,7 +63,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
   /**
    * Unregister a callback on a solenoid output.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param channel the channel to monitor
    * @param uid the internal UID of the CallbackStore to cancel
@@ -72,7 +72,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
 
   /**
    * Check the solenoid output on a specific channel.
-   * 
+   *
    * @param index index number of the simulated device
    * @param channel the channel to check
    * @return the solenoid output
@@ -81,7 +81,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
 
   /**
    * Change the solenoid output on a specific channel.
-   * 
+   *
    * @param index index number of the simulated device
    * @param channel the channel to change
    * @param solenoidOutput the new solenoid output
@@ -90,7 +90,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
 
   /**
    * Register a callback on the compressor on/off state.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the compressor on/off state changes
    * @param initialNotify whether to run the callback on the initial value
@@ -102,7 +102,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
   /**
    * Unregister a callback on the compressor on/off state.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -110,7 +110,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
 
   /**
    * Check if the compressor is on.
-   * 
+   *
    * @param index index number of the simulated device
    * @return true if the compressor is on
    */
@@ -118,7 +118,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
 
   /**
    * Change the compressor on/off state.
-   * 
+   *
    * @param index index number of the simulated device
    * @param compressorOn the new compressor on/off state
    */
@@ -126,7 +126,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
 
   /**
    * Register a callback on whenever the closed loop state changes.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the closed loop state changes
    * @param initialNotify whether to run the callback on the initial value
@@ -138,7 +138,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
   /**
    * Unregister a callback on the closed loop state.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -146,7 +146,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
 
   /**
    * Checks if closed loop compressor control is enabled.
-   * 
+   *
    * @param index index number of the simulated device
    * @return true if active
    */
@@ -154,7 +154,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
 
   /**
    * Turn on/off the closed loop control of the compressor.
-   * 
+   *
    * @param index index number of the simulated device
    * @param closeLoopEnabled whether the control loop is active
    */
@@ -162,7 +162,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
 
   /**
    * Register a callback on when the pressure switch value changes.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the pressure switch value changes
    * @param initialNotify whether to run the callback on the initial value
@@ -174,7 +174,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
   /**
    * Unregister a callback on the pressure switch value.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -182,7 +182,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
 
   /**
    * Check the pressure switch value.
-   * 
+   *
    * @param index index number of the simulated device
    * @return the pressure switch value
    */
@@ -190,7 +190,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
 
   /**
    * Change the value of the pressure switch.
-   * 
+   *
    * @param index index number of the simulated device
    * @param pressureSwitch the new value
    */
@@ -198,7 +198,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
 
   /**
    * Register a callback on the compressor current.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the compressor current changes
    * @param initialNotify whether to run the callback on the initial value
@@ -210,7 +210,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
   /**
    * Unregister a callback on the compressor current.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -218,7 +218,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
 
   /**
    * Checks the compressor current.
-   * 
+   *
    * @param index index number of the simulated device
    * @return the compressor current
    */
@@ -226,7 +226,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
 
   /**
    * Changes the compressor current.
-   * 
+   *
    * @param index index number of the simulated device
    * @param compressorCurrent the new current
    */
@@ -234,9 +234,9 @@ public class CTREPCMDataJNI extends JNIWrapper {
 
   /**
    * Register a callback method for all non-solenoid related state changes.
-   * 
+   *
    * This function does not instantiate CallbackStores.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever a non-solenoid related state changes
    * @param initialNotify whether to run the callback on the initial value
@@ -246,9 +246,9 @@ public class CTREPCMDataJNI extends JNIWrapper {
 
   /**
    * Register a callback method for solenoid related state changes on a specific channel
-   * 
-   * This function does not instantiate CallbackStores. 
-   * 
+   *
+   * This function does not instantiate CallbackStores.
+   *
    * @param index index number of the simulated device
    * @param channel the channel associated with the solenoid
    * @param callback the callback that will be called whenever a non-solenoid related state changes
@@ -259,7 +259,7 @@ public class CTREPCMDataJNI extends JNIWrapper {
 
   /**
    * Reset all simulation data for a simulated device.
-   * 
+   *
    * @param index index number of the simulated device
    */
   public static native void resetData(int index);

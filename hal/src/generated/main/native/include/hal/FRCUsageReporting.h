@@ -51,7 +51,6 @@ int64_t HAL_Report(int32_t resource, int32_t instanceNumber, int32_t context,
 #ifdef __cplusplus
 namespace HALUsageReporting {
   enum tResourceType : int32_t {
-
     kResourceType_Controller = 0,
     kResourceType_Module = 1,
     kResourceType_Language = 2,
@@ -156,7 +155,6 @@ namespace HALUsageReporting {
     kResourceType_CTRE_future14 = 101,
   };
   enum tInstances : int32_t {
-
     kLanguage_LabVIEW = 1,
     kLanguage_CPlusPlus = 2,
     kLanguage_Java = 3,

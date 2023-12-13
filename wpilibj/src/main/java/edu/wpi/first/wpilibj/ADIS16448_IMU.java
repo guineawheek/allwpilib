@@ -131,8 +131,8 @@ public class ADIS16448_IMU implements AutoCloseable, Sendable {
   }
 
   /**
-   * IMU axes valid to set as yaw. 
-   * 
+   * IMU axes valid to set as yaw.
+   *
    * By default, this is the Z-axis.
    */
   public enum IMUAxis {
@@ -272,7 +272,7 @@ public class ADIS16448_IMU implements AutoCloseable, Sendable {
   }
 
   /**
-   * Constructs a new ADIS16448 IMU using the SPI port on the MXP, the Z-axis as yaw, and 512 
+   * Constructs a new ADIS16448 IMU using the SPI port on the MXP, the Z-axis as yaw, and 512
    * milliseconds of calibration time.
    */
   public ADIS16448_IMU() {
@@ -281,7 +281,7 @@ public class ADIS16448_IMU implements AutoCloseable, Sendable {
 
   /**
    * Constructs a new ADIS16448 IMU class.
-   * 
+   *
    * @param yaw_axis The axis that measures the yaw
    * @param port The SPI Port the gyro is plugged into
    * @param cal_time Calibration time
@@ -364,7 +364,7 @@ public class ADIS16448_IMU implements AutoCloseable, Sendable {
   /**
    * Get if the sensor is connected.
    * Assumed true on real robots but may not be true in simulation.
-   * 
+   *
    * @return true if the sensor is connected
    */
   public boolean isConnected() {
@@ -376,7 +376,7 @@ public class ADIS16448_IMU implements AutoCloseable, Sendable {
 
   /**
    * Converts a 2-length array of bytes into an unsigned short
-   * 
+   *
    * @param buf length 2 buffer
    * @return value between 0-65535 as an int
    */
@@ -387,7 +387,7 @@ public class ADIS16448_IMU implements AutoCloseable, Sendable {
   /**
    * Converts a series of integers into an unsigned byte.
    * This strips the sign extension usually implied by Java type-casting.
-   * 
+   *
    * @param buf integers to convert. Only the first argument is considered.
    * @return value from 0-255 as an int
    */
@@ -398,8 +398,8 @@ public class ADIS16448_IMU implements AutoCloseable, Sendable {
   /**
    * Converts a series of integers into an unsigned short.
    * This strips the sign extension usually implied by Java type-casting.
-   * 
-   * @param buf integers to convert. 
+   *
+   * @param buf integers to convert.
    *     Arg 0 is the upper 8 bits, while arg 1 is the lower 8.
    * @return value from 0-65535 as an int
    */
@@ -410,7 +410,7 @@ public class ADIS16448_IMU implements AutoCloseable, Sendable {
   /**
    * Converts a signed int to a long.
    * This strips the sign extension usually implied by Java type-casting.
-   * 
+   *
    * @param sint integer to convert
    * @return value from 0-(2^32-1) as a long
    */
@@ -420,8 +420,8 @@ public class ADIS16448_IMU implements AutoCloseable, Sendable {
 
   /**
    * Convert a series of integers representing unsigned bytes into a signed short.
-   * 
-   * @param buf integers to convert. 
+   *
+   * @param buf integers to convert.
    *     Arg 0 is the upper 8 bits, while arg 1 is the lower 8 bits.
    * @return signed 16-bit short
    */
@@ -429,10 +429,10 @@ public class ADIS16448_IMU implements AutoCloseable, Sendable {
     return (short) (((buf[0] & 0xFF) << 8) + ((buf[1] & 0xFF)));
   }
 
-  
+
   /**
    * Convert a series of integers representing unsigned bytes into a signed int.
-   * 
+   *
    * @param buf integers to convert.
    *     Arg 0 is bits 24-31, arg 1 is bits 16-23, arg 2 is bits 8-15, and arg 3 is bits 0-7.
    * @return signed 32-bit integer
@@ -558,15 +558,15 @@ public class ADIS16448_IMU implements AutoCloseable, Sendable {
   /**
    * Sets the decimation rate of the IMU.
    * This controls how many samples the IMU internally averages over, and also the effective update
-   * rate. Higher decimation may have less noise but more lag, and lower decimation may be 
+   * rate. Higher decimation may have less noise but more lag, and lower decimation may be
    * noiser but have less lag.
-   * 
+   *
    * <p>
    * Valid rates are between 0-9, where the number of samples averaged over is 2^(m_decRate).
    * The ADIS16448 typically updates at 819.2 samples per second on the gyroscope and accelerometer
    * outputs.
    * </p>
-   * 
+   *
    * @param m_decRate The decimation rate as a power of 2 (between 0-9 inclusive.)
    * @return 0 on success, 2 on SPI reconfiguration failure.
    */

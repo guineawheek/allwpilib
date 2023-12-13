@@ -6,17 +6,17 @@ package edu.wpi.first.hal.simulation;
 
 /**
  * Functional interface representing a callback that takes a mutable buffer.
- * 
+ *
  * This is typically associated with data being read through SPI/I2C/CAN simulation.
  */
 public interface BufferCallback {
   /**
    * The callback function itself.
-   * 
+   *
    * @param name a string associated with the trigger of the callback.
-   *     The source of these names typically derives from a C++ function passed into the 
+   *     The source of these names typically derives from a C++ function passed into the
    *     <code>SimCallbackRegistry</code> template parameters as its "get name" function.
-   *     The name functions themselves are typically defined via the 
+   *     The name functions themselves are typically defined via the
    *     <code>HAL_SIMCALLBACKREGISTRY_DEFINE_NAME</code> macro.
    * @param buffer bytes associated with the callback event.
    *     Mutating this buffer will mutate the underlying buffer in the HAL as well, which may

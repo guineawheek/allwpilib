@@ -8,14 +8,13 @@ import edu.wpi.first.hal.JNIWrapper;
 
 /**
  * Simulated analog output data HAL JNI methods.
- * 
+ *
  * @see "hal/simulation/AnalogOutData.h"
  */
 public class AnalogOutDataJNI extends JNIWrapper {
-
   /**
    * Register a callback on the voltage.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the voltage is changed.
    * @param initialNotify whether to run the callback on the initial value
@@ -27,7 +26,7 @@ public class AnalogOutDataJNI extends JNIWrapper {
   /**
    * Unregister a callback on the voltage.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -35,15 +34,15 @@ public class AnalogOutDataJNI extends JNIWrapper {
 
   /**
    * Get the voltage.
-   * 
+   *
    * @param index index number of the simulated device
    * @return the voltage
    */
   public static native double getVoltage(int index);
 
   /**
-   * Change the voltage. 
-   * 
+   * Change the voltage.
+   *
    * @param index index number of the simulated device
    * @param voltage the new value
    */
@@ -51,7 +50,7 @@ public class AnalogOutDataJNI extends JNIWrapper {
 
   /**
    * Register a callback on whether an analog output is initialized.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the device is initialized
    * @param initialNotify whether to run the callback on the initial value
@@ -63,7 +62,7 @@ public class AnalogOutDataJNI extends JNIWrapper {
   /**
    * Unregister a callback on whether an analog output is initialized.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -71,7 +70,7 @@ public class AnalogOutDataJNI extends JNIWrapper {
 
   /**
    * Check if an analog output is initialized.
-   * 
+   *
    * @param index index number of the simulated device
    * @return true if initialized
    */
@@ -79,7 +78,7 @@ public class AnalogOutDataJNI extends JNIWrapper {
 
   /**
    * Change whether an analog output is initialized.
-   * 
+   *
    * @param index index number of the simulated device
    * @param initialized the new value
    */
@@ -87,7 +86,7 @@ public class AnalogOutDataJNI extends JNIWrapper {
 
   /**
    * Reset all simulation data for a simulated device.
-   * 
+   *
    * @param index index number of the simulated device
    */
   public static native void resetData(int index);

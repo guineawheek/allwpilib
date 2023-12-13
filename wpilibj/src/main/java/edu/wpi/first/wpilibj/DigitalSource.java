@@ -27,7 +27,7 @@ public abstract class DigitalSource implements AutoCloseable {
 
   /**
    * The analog trigger type.
-   * 
+   *
    * The valid values are in {@link edu.wpi.first.hal.AnalogJNI.AnalogTriggerType}.
    * @return the analog trigger type
    */
@@ -35,7 +35,7 @@ public abstract class DigitalSource implements AutoCloseable {
 
   /**
    * Gets the HAL port handle associated with the DigitalSource.
-   * 
+   *
    * @return the HAL port handle number
    */
   public abstract int getPortHandleForRouting();

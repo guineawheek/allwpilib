@@ -13,7 +13,7 @@ package edu.wpi.first.wpilibj.interfaces;
 public interface Accelerometer {
   /**
    * Range of maximum acceleration the accelerometer should be configured to measure.
-   * 
+   *
    * Smaller ranges often provide more resolution, but bigger ranges tolerate greater acceleration.
    */
   enum Range {

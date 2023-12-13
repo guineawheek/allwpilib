@@ -150,7 +150,7 @@ public class ADXL345_I2C implements NTSendable, AutoCloseable {
 
   /**
    * Gets the I2C port number associated with the device.
-   * 
+   *
    * @return the I2C port number
    */
   public int getPort() {
@@ -159,7 +159,7 @@ public class ADXL345_I2C implements NTSendable, AutoCloseable {
 
   /**
    * Gets the I2C address of this device.
-   * 
+   *
    * @return the I2C address
    */
   public int getDeviceAddress() {

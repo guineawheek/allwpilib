@@ -11,11 +11,22 @@ import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.util.RawFrame;
 import java.util.Objects;
 
+/**
+ * Class representing a single AprilTag on a field.
+ *
+ * This class is used with {@link AprtilTagFieldLayout} to [un]serialize field layouts from JSON.
+ */
 @SuppressWarnings("MemberName")
 public class AprilTag {
+  /**
+   * The ID of the AprilTag.
+   */
   @JsonProperty(value = "ID")
   public int ID;
 
+  /**
+   * The Pose3d of the AprilTag.
+   */
   @JsonProperty(value = "pose")
   public Pose3d pose;
 

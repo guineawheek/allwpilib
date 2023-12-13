@@ -40,7 +40,7 @@ public class ADXL362Sim {
 
   /**
    * Set the X-axis acceleration measured by the accelerometer in g-forces.
-   * 
+   *
    * @param x the new value
    */
   public void setX(double x) {
@@ -49,7 +49,7 @@ public class ADXL362Sim {
 
   /**
    * Set the Y-axis acceleration measured by the accelerometer in g-forces.
-   * 
+   *
    * @param y the new value
    */
   public void setY(double y) {
@@ -58,7 +58,7 @@ public class ADXL362Sim {
 
   /**
    * Set the Z-axis acceleration measured by the accelerometer in g-forces.
-   * 
+   *
    * @param z the new value
    */
   public void setZ(double z) {

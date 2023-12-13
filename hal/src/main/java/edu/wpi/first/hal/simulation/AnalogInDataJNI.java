@@ -8,14 +8,13 @@ import edu.wpi.first.hal.JNIWrapper;
 
 /**
  * Simulated analog input data HAL JNI methods.
- * 
+ *
  * @see "hal/simulation/AnalogInData.h"
  */
 public class AnalogInDataJNI extends JNIWrapper {
-
   /**
    * Register a callback on whether an analog input is initialized.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the device is initialized
    * @param initialNotify whether to run the callback on the initial value
@@ -27,7 +26,7 @@ public class AnalogInDataJNI extends JNIWrapper {
   /**
    * Unregister a callback on whether an analog input is initialized.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -35,7 +34,7 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Check if an analog input is initialized.
-   * 
+   *
    * @param index index number of the simulated device
    * @return true if initialized
    */
@@ -43,7 +42,7 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Change whether an analog input is initialized.
-   * 
+   *
    * @param index index number of the simulated device
    * @param initialized the new value
    */
@@ -51,7 +50,7 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Register a callback on the number of average bits.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the number of average bits changes
    * @param initialNotify whether to run the callback on the initial value
@@ -63,7 +62,7 @@ public class AnalogInDataJNI extends JNIWrapper {
   /**
    * Unregster a callback on the number of average bits.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -71,7 +70,7 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Get the number of average bits.
-   * 
+   *
    * @param index index number of the simulated device
    * @return the number of average bits
    */
@@ -79,7 +78,7 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Change the number of average bits.
-   * 
+   *
    * @param index index number of the simulated device
    * @param averageBits the new value
    */
@@ -87,7 +86,7 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Register a callback on the amount of oversampling bits.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the oversampling bits change
    * @param initialNotify whether to run the callback on the initial value
@@ -98,7 +97,7 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Unregster a callback on the amount of oversampling bits.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -106,7 +105,7 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Gets the amount of oversampling bits.
-   * 
+   *
    * @param index index number of the simulated device
    * @return the amount of oversampling bits
    */
@@ -114,15 +113,15 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Change the amount of oversampling bits.
-   * 
-   * @param index index number of the simulated device 
+   *
+   * @param index index number of the simulated device
    * @param oversampleBits the new value
    */
   public static native void setOversampleBits(int index, int oversampleBits);
 
   /**
    * Register a callback on the voltage.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the voltage is changed.
    * @param initialNotify whether to run the callback on the initial value
@@ -134,7 +133,7 @@ public class AnalogInDataJNI extends JNIWrapper {
   /**
    * Unregister a callback on the voltage.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -142,15 +141,15 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Get the voltage.
-   * 
+   *
    * @param index index number of the simulated device
    * @return the voltage
    */
   public static native double getVoltage(int index);
 
   /**
-   * Change the voltage. 
-   * 
+   * Change the voltage.
+   *
    * @param index index number of the simulated device
    * @param voltage the new value
    */
@@ -158,7 +157,7 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Register a callback on whether the accumulator is initialized.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the accumulator is initialized
    * @param initialNotify whether to run the callback on the initial value
@@ -170,7 +169,7 @@ public class AnalogInDataJNI extends JNIWrapper {
   /**
    * Unregsiter a callback on whether the accumulator is initialized.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -178,7 +177,7 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Check if the accumulator has been initialized.
-   * 
+   *
    * @param index index number of the simulated device
    * @return true if initialized
    */
@@ -186,7 +185,7 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Change whether the accumulator has been initialized.
-   * 
+   *
    * @param index index number of the simulated device
    * @param accumulatorInitialized the new valup
    */
@@ -194,7 +193,7 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Register a callback on the accumulator value.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the accumulator value is changed
    * @param initialNotify whether to run the callback on the initial value
@@ -206,7 +205,7 @@ public class AnalogInDataJNI extends JNIWrapper {
   /**
    * Unregister a callback on the accumulator value.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -214,7 +213,7 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Get the accumulator value.
-   * 
+   *
    * @param index index number of the simulated device
    * @return the accumulator value
    */
@@ -222,7 +221,7 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Change the accumulator value.
-   * 
+   *
    * @param index index number of the simulated device
    * @param accumulatorValue the new value
    */
@@ -230,7 +229,7 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Register a callback on the accumulator count.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the accumulator count changes
    * @param initialNotify whether to run the callback on the initial value
@@ -242,7 +241,7 @@ public class AnalogInDataJNI extends JNIWrapper {
   /**
    * Unregister a callback on the accumulator count.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -250,7 +249,7 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Get the accumulator count.
-   * 
+   *
    * @param index index number of the simulated device
    * @return the accumulator count
    */
@@ -258,7 +257,7 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Change the accumulator count.
-   * 
+   *
    * @param index index number of the simulated device
    * @param accumulatorCount the new count.
    */
@@ -266,7 +265,7 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Register a callback on the accumulator center.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the accumulator center changes
    * @param initialNotify whether to run the callback on the initial value
@@ -278,7 +277,7 @@ public class AnalogInDataJNI extends JNIWrapper {
   /**
    * Unregister a callback on the accumulator center.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -286,15 +285,15 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Get the accumulator center.
-   * 
+   *
    * @param index index number of the simulated device
    * @return the accumulator center
    */
   public static native int getAccumulatorCenter(int index);
 
   /**
-   * Change the accumulator center. 
-   * 
+   * Change the accumulator center.
+   *
    * @param index index number of the simulated device
    * @param AccumulatorCenter the new center
    */
@@ -302,7 +301,7 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Register a callback on the accumulator deadband.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the accumulator deadband changes
    * @param initialNotify whether to run the callback on the initial value
@@ -314,7 +313,7 @@ public class AnalogInDataJNI extends JNIWrapper {
   /**
    * Unregister a callback on the accumulator deadband.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -322,7 +321,7 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Get the accumulator deadband.
-   * 
+   *
    * @param index index number of the simulated device
    * @return the deadband
    */
@@ -330,7 +329,7 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Change the accumulator deadband.
-   * 
+   *
    * @param index index number of the simulated device
    * @param AccumulatorDeadband the new deadband
    */
@@ -338,7 +337,7 @@ public class AnalogInDataJNI extends JNIWrapper {
 
   /**
    * Reset all simulation data for a simulated device.
-   * 
+   *
    * @param index index number of the simulated device
    */
   public static native void resetData(int index);

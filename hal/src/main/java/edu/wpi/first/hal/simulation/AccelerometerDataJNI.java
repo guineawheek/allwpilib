@@ -8,13 +8,13 @@ import edu.wpi.first.hal.JNIWrapper;
 
 /**
  * Simulated accelerometer data HAL JNI methods.
- * 
+ *
  * @see "hal/simulation/AccelerometerData.h"
  */
 public class AccelerometerDataJNI extends JNIWrapper {
   /**
    * Register a callback to be run when this accelerometer activates.
-   * 
+   *
    * @param index index number of the simulated accelerometer
    * @param callback the callback
    * @param initialNotify whether to run the callback with the initial state
@@ -26,7 +26,7 @@ public class AccelerometerDataJNI extends JNIWrapper {
   /**
    * Unregisters a callback that is run when this accelerometer activates.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated accelerometer
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -48,7 +48,7 @@ public class AccelerometerDataJNI extends JNIWrapper {
 
   /**
    * Register a callback to be run whenever the range changes.
-   * 
+   *
    * @param index index number of the simulated accelerometer
    * @param callback the callback
    * @param initialNotify whether to call the callback with the initial state
@@ -60,7 +60,7 @@ public class AccelerometerDataJNI extends JNIWrapper {
   /**
    * Unregisters a callback that is run whenever the range changes.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated accelerometer
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -68,7 +68,7 @@ public class AccelerometerDataJNI extends JNIWrapper {
 
   /**
    * Check the range of an accelerometer.
-   * 
+   *
    * @param index index number of the simulated accelerometer
    * @return the accelerometer range
    */
@@ -77,7 +77,7 @@ public class AccelerometerDataJNI extends JNIWrapper {
 
   /**
    * Change the range of an accelerometer.
-   * 
+   *
    * @param index index number of the simulated accelerometer
    * @param range the new accelerometer range
    */
@@ -85,7 +85,7 @@ public class AccelerometerDataJNI extends JNIWrapper {
 
   /**
    * Register a callback to be run whenever the X axis value changes.
-   * 
+   *
    * @param index index number of the simulated accelerometer
    * @param callback the callback
    * @param initialNotify whether to call the callback with the initial state
@@ -97,7 +97,7 @@ public class AccelerometerDataJNI extends JNIWrapper {
   /**
    * Unregisters a callback that is run whenever the X axis value changes.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated accelerometer
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -105,15 +105,15 @@ public class AccelerometerDataJNI extends JNIWrapper {
 
   /**
    * Measure the X axis value.
-   * 
+   *
    * @param index index number of the simulated accelerometer
    * @return the X axis measurement
    */
   public static native double getX(int index);
 
   /**
-   * Change the X axis value of the accelerometer. 
-   * 
+   * Change the X axis value of the accelerometer.
+   *
    * @param index index number of the simulated accelerometer
    * @param x the new reading of the X axis
    */
@@ -121,7 +121,7 @@ public class AccelerometerDataJNI extends JNIWrapper {
 
   /**
    * Register a callback to be run whenever the Y axis value changes.
-   * 
+   *
    * @param index index number of the simulated accelerometer
    * @param callback the callback
    * @param initialNotify whether to call the callback with the initial state
@@ -133,7 +133,7 @@ public class AccelerometerDataJNI extends JNIWrapper {
   /**
    * Unregisters a callback that is run whenever the Y axis value changes.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated accelerometer
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -141,15 +141,15 @@ public class AccelerometerDataJNI extends JNIWrapper {
 
   /**
    * Measure the Y axis value.
-   * 
+   *
    * @param index index number of the simulated accelerometer
    * @return the Y axis measurement
    */
   public static native double getY(int index);
 
   /**
-   * Change the Y axis value of the accelerometer. 
-   * 
+   * Change the Y axis value of the accelerometer.
+   *
    * @param index index number of the simulated accelerometer
    * @param y the new reading of the Y axis
    */
@@ -157,7 +157,7 @@ public class AccelerometerDataJNI extends JNIWrapper {
 
   /**
    * Register a callback to be run whenever the Z axis value changes.
-   * 
+   *
    * @param index index number of the simulated accelerometer
    * @param callback the callback
    * @param initialNotify whether to call the callback with the initial state
@@ -169,7 +169,7 @@ public class AccelerometerDataJNI extends JNIWrapper {
   /**
    * Unregisters a callback that is run whenever the Z axis value changes.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated accelerometer
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -177,23 +177,23 @@ public class AccelerometerDataJNI extends JNIWrapper {
 
   /**
    * Measure the Z axis value.
-   * 
+   *
    * @param index index number of the simulated accelerometer
    * @return the Z axis measurement
    */
   public static native double getZ(int index);
 
   /**
-   * Change the Z axis value of the accelerometer. 
-   * 
+   * Change the Z axis value of the accelerometer.
+   *
    * @param index index number of the simulated accelerometer
    * @param z the new reading of the Z axis
    */
   public static native void setZ(int index, double z);
 
-  /** 
+  /**
    * Reset all simulation data for an accelerometer.
-   * 
+   *
    * @param index index number of the simulated accelerometer
    */
   public static native void resetData(int index);

@@ -11,6 +11,9 @@ import edu.wpi.first.math.numbers.N1;
 import java.util.function.BiFunction;
 import org.ejml.simple.SimpleMatrix;
 
+/**
+ * Angle statistics functions used for UKF-based pose estimation.
+ */
 public final class AngleStatistics {
   private AngleStatistics() {
     // Utility class

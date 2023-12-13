@@ -52,7 +52,7 @@ public class AnalogOutput implements Sendable, AutoCloseable {
 
   /**
    * Sets the voltage to output.
-   * 
+   *
    * @param voltage the new output voltage (0-5v)
    */
   public void setVoltage(double voltage) {
@@ -61,7 +61,7 @@ public class AnalogOutput implements Sendable, AutoCloseable {
 
   /**
    * Gets the current output voltage.
-   * 
+   *
    * @return the current output voltage (0-5v)
    */
   public double getVoltage() {

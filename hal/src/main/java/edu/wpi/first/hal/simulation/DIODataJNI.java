@@ -8,14 +8,13 @@ import edu.wpi.first.hal.JNIWrapper;
 
 /**
  * Simulated digital I/O data HAL JNI methods.
- * 
+ *
  * @see "hal/simulation/DIOData.h"
  */
 public class DIODataJNI extends JNIWrapper {
-
   /**
    * Register a callback on the initialization state.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the initialization state changes
    * @param initialNotify whether to run the callback on the initial value
@@ -27,7 +26,7 @@ public class DIODataJNI extends JNIWrapper {
   /**
    * Unregister a callback on the initialization state.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -35,7 +34,7 @@ public class DIODataJNI extends JNIWrapper {
 
   /**
    * Check whether the DIO is initialized.
-   * 
+   *
    * @param index index number of the simulated device
    * @return true if initialized
    */
@@ -43,7 +42,7 @@ public class DIODataJNI extends JNIWrapper {
 
   /**
    * Change the DIO initialization state.
-   * 
+   *
    * @param index index number of the simulated device
    * @param initialized true if the simulated DIO is initialized
    */
@@ -51,7 +50,7 @@ public class DIODataJNI extends JNIWrapper {
 
   /**
    * Register a callback on whenever the DIO value changes.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the DIO value changes
    * @param initialNotify whether to run the callback on the initial value
@@ -63,7 +62,7 @@ public class DIODataJNI extends JNIWrapper {
   /**
    * Unregister a callback on whenever the DIO value changes.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -71,7 +70,7 @@ public class DIODataJNI extends JNIWrapper {
 
   /**
    * Check the value of the DIO port.
-   * 
+   *
    * @param index index number of the simulated device
    * @return the DIO value
    */
@@ -79,7 +78,7 @@ public class DIODataJNI extends JNIWrapper {
 
   /**
    * Change the value of the DIO port.
-   * 
+   *
    * @param index index number of the simulated device
    * @param value the new value
    */
@@ -87,7 +86,7 @@ public class DIODataJNI extends JNIWrapper {
 
   /**
    * Register a callback on whenever the pulse length changes.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the pulse length changes
    * @param initialNotify whether to run the callback on the initial value
@@ -99,7 +98,7 @@ public class DIODataJNI extends JNIWrapper {
   /**
    * Unregister a callback on the pulse length.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -107,7 +106,7 @@ public class DIODataJNI extends JNIWrapper {
 
   /**
    * Reads the pulse length.
-   * 
+   *
    * @param index index number of the simulated device
    * @return the pulse length
    */
@@ -115,7 +114,7 @@ public class DIODataJNI extends JNIWrapper {
 
   /**
    * Change the pulse length.
-   * 
+   *
    * @param index index number of the simulated device
    * @param pulseLength the new pulse length
    */
@@ -123,7 +122,7 @@ public class DIODataJNI extends JNIWrapper {
 
   /**
    * Register a callback to be run whenever a DIO changes to be an input.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called
    * @param initialNotify whether to run the callback on the initial value
@@ -135,7 +134,7 @@ public class DIODataJNI extends JNIWrapper {
   /**
    * Unregister a callback on whenever a DIO changes to be an input.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -143,7 +142,7 @@ public class DIODataJNI extends JNIWrapper {
 
   /**
    * Checks if the DIO is an input.
-   * 
+   *
    * @param index index number of the simulated device
    * @return true if input
    */
@@ -151,7 +150,7 @@ public class DIODataJNI extends JNIWrapper {
 
   /**
    * Changes whether the DIO is an input.
-   * 
+   *
    * @param index index number of the simulated device
    * @param isInput whether the DIO is an input.
    */
@@ -159,7 +158,7 @@ public class DIODataJNI extends JNIWrapper {
 
   /**
    * Register a callback to be run when the filter index changes.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called
    * @param initialNotify whether to run the callback on the initial value
@@ -171,7 +170,7 @@ public class DIODataJNI extends JNIWrapper {
   /**
    * Unregister a callback to be run when the filter index changes.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -179,7 +178,7 @@ public class DIODataJNI extends JNIWrapper {
 
   /**
    * Checks the filter index of the DIO.
-   * 
+   *
    * @param index index number of the simulated device
    * @return the filter index
    */
@@ -187,7 +186,7 @@ public class DIODataJNI extends JNIWrapper {
 
   /**
    * Changes the filter index of the DIO.
-   * 
+   *
    * @param index index number of the simulated device
    * @param filterIndex the new filter index
    */
@@ -195,7 +194,7 @@ public class DIODataJNI extends JNIWrapper {
 
   /**
    * Resets all simulation data for a simulated device.
-   * 
+   *
    * @param index index number of the simulated device
    */
   public static native void resetData(int index);

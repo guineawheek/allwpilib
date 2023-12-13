@@ -129,7 +129,7 @@ public class ADXL345_SPI implements NTSendable, AutoCloseable {
 
   /**
    * Gets the SPI port number associated with the device.
-   * 
+   *
    * @return the SPI port number
    */
   public int getPort() {

@@ -8,13 +8,13 @@ import edu.wpi.first.hal.JNIWrapper;
 
 /**
  * Simulated analog trigger data HAL JNI methods.
- * 
+ *
  * @see "hal/simulation/AnalogTriggerData.h"
  */
 public class AnalogTriggerDataJNI extends JNIWrapper {
   /**
    * Register a callback on whether an analog trigger is initialized.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the device is initialized
    * @param initialNotify whether to run the callback on the initial value
@@ -26,7 +26,7 @@ public class AnalogTriggerDataJNI extends JNIWrapper {
   /**
    * Unregister a callback on whether an analog trigger is initialized.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -34,7 +34,7 @@ public class AnalogTriggerDataJNI extends JNIWrapper {
 
   /**
    * Check if an analog trigger is initialized.
-   * 
+   *
    * @param index index number of the simulated device
    * @return true if initialized
    */
@@ -42,7 +42,7 @@ public class AnalogTriggerDataJNI extends JNIWrapper {
 
   /**
    * Change whether an analog trigger is initialized.
-   * 
+   *
    * @param index index number of the simulated device
    * @param initialized the new value
    */
@@ -50,7 +50,7 @@ public class AnalogTriggerDataJNI extends JNIWrapper {
 
   /**
    * Register a callback on the trigger lower bound.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the trigger lower bound changes
    * @param initialNotify whether to run the callback on the initial value
@@ -62,7 +62,7 @@ public class AnalogTriggerDataJNI extends JNIWrapper {
   /**
    * Unregister a callback on the trigger lower bound.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -70,15 +70,15 @@ public class AnalogTriggerDataJNI extends JNIWrapper {
 
   /**
    * Get the trigger lower bound.
-   * 
+   *
    * @param index index number of the simulated device
    * @return the lower bound
    */
   public static native double getTriggerLowerBound(int index);
 
   /**
-   * Change the trigger lower bound. 
-   * 
+   * Change the trigger lower bound.
+   *
    * @param index index number of the simulated device
    * @param triggerLowerBound the new lower bound
    */
@@ -86,7 +86,7 @@ public class AnalogTriggerDataJNI extends JNIWrapper {
 
   /**
    * Register a callback on the trigger upper bound.
-   * 
+   *
    * @param index index number of the simulated device
    * @param callback the callback that will be called whenever the trigger upper bound changes
    * @param initialNotify whether to run the callback on the initial value
@@ -98,7 +98,7 @@ public class AnalogTriggerDataJNI extends JNIWrapper {
   /**
    * Unregister a callback on the trigger upper bound.
    * Used with CallbackStore to automatically unregister a callback upon freeing resources.
-   * 
+   *
    * @param index index number of the simulated device
    * @param uid the internal UID of the CallbackStore to cancel
    */
@@ -106,7 +106,7 @@ public class AnalogTriggerDataJNI extends JNIWrapper {
 
   /**
    * Get the trigger upper bound.
-   * 
+   *
    * @param index index number of the simulated device
    * @return the upper bound
    */
@@ -114,7 +114,7 @@ public class AnalogTriggerDataJNI extends JNIWrapper {
 
   /**
    * Change the trigger upper bound.
-   * 
+   *
    * @param index index number of the simulated device
    * @param triggerUpperBound the upper bound
    */
@@ -122,14 +122,14 @@ public class AnalogTriggerDataJNI extends JNIWrapper {
 
   /**
    * Reset all simulation data for a simulated device.
-   * 
+   *
    * @param index index number of the simulated device
    */
   public static native void resetData(int index);
 
   /**
    * Finds the index number for an analog trigger corresponding to the analog input channel.
-   * 
+   *
    * @param channel analog input channel
    * @return analog trigger index if it exists, else a negative value.
    */

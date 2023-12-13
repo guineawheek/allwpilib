@@ -163,7 +163,7 @@ public class ADXL362 implements NTSendable, AutoCloseable {
 
   /**
    * Gets the SPI port number associated with the device.
-   * 
+   *
    * @return the SPI port number
    */
   public int getPort() {
